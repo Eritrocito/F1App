@@ -1,0 +1,45 @@
+https://api.sportradar.us/formula1/trial/v2/en/seasons.json?api_key=uzejr6dhnsc75rj8txcycnbb
+	- Con esto obtengo los id de cada temporada, que luego voy a usar para acceder a la info detallada de cada una
+
+Con el id de una determinada temporada,
+https://api.sportradar.us/formula1/trial/v2/en/sport_events/sr:stage:id_temporada/summary.json?api_key=uzejr6dhnsc75rj8txcycnbb
+	- Con esto obtengo un resumen de cada temporada, que contiene:
+		- Fecha inicio y fecha fin
+		- stages --> es un array con cada carrera e info general de la misma (nombre, ciudad, cant de vueltas, longitud, etc.)
+		- competitors --> array con todos los competidores de esa temporada (nombre, puntos, victorias, poles, etc.)
+		- teams --> array con todos los equipos (nombre, ptos en esa temporada, pilotos, etc.)
+
+
+Con el id de una determinada temporada,
+https://api.sportradar.us/formula1/trial/v2/en/sport_events/sr:stage:547803/schedule.json?api_key=uzejr6dhnsc75rj8txcycnbb
+	- Con esto tengo un array de los GPs de esa temporada, con detalle de P1, P2 y P3, Q1, Q2 y Q3, y carrera
+
+
+
+Con el id de P1, P2, P3, Q1, Q2, Q3 o de la carrera, puedo acceder a sus detalles,
+https://api.sportradar.us/formula1/trial/v2/en/sport_events/sr:stage:616997/summary.json?api_key=uzejr6dhnsc75rj8txcycnbb
+	
+
+En el detalle de la carrera, puedo acceder al id de cada vuelta, que a su vez tiene info sobre cada vuelta en particular
+https://api.sportradar.us/formula1/trial/v2/en/sport_events/sr:stage:616999/summary.json?api_key=uzejr6dhnsc75rj8txcycnbb
+	- Tengo info de qué tiempo hizo cada corredor en este vuelta
+
+
+El esquema general es season --> event  --> practice 
+					--> qualy -->qualy part
+					--> race --> lap
+
+
+Para tener la info de un determinado equipo, necesito su id (que lo puedo sacar con el segundo url de este archivo),
+https://api.sportradar.us/formula1/trial/v2/en/teams/sr:competitor:id_equipo/profile.json?api_key=uzejr6dhnsc75rj8txcycnbb
+
+
+Para tener la info de un determinado corredor, necesito su id (que lo puedo sacar con el segundo url de este archivo),
+https://api.sportradar.us/formula1/trial/v2/en/competitors/sr:competitor:id_corredor/profile.json?api_key=uzejr6dhnsc75rj8txcycnbb
+
+
+Para poder leer la API, reemplazar en la URL los : por %3a
+
+
+Notar la diferencia entre usar summary y schedule en la url
+
