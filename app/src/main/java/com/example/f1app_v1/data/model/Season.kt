@@ -7,17 +7,7 @@ data class SeasonId (
 )
 data class SeasonIdList(val stages: List<SeasonId> =listOf())
 
-data class Season(
 
-    val stage: Stage
-) {
-    inner class Stage(
-        val competitors: List<Comp>
-    ) {
-        inner class Comp(
-            val id: String = "",
-            val name:String=""
-        )
-    }
-}
+
+
 

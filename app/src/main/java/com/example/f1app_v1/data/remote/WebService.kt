@@ -1,7 +1,8 @@
 package com.example.f1app_v1
 
 import com.example.f1app_v1.application.AppConstants
-import com.example.f1app_v1.data.model.Season
+import com.example.f1app_v1.data.model.Driver
+import com.example.f1app_v1.data.model.DriverIds
 import com.example.f1app_v1.data.model.SeasonIdList
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
@@ -17,10 +18,10 @@ interface WebService {
     suspend fun getSeasonIds(@Query("api_key") apiKey: String): SeasonIdList
 
     @GET("sport_events/{id}/summary.json")
-    suspend fun getDriverIds(@Path("id", encoded = true) id:String, @Query("api_key") apiKey: String): Season
+    suspend fun getDriverIds(@Path("id", encoded = true) id:String, @Query("api_key") apiKey: String): DriverIds
 
-    //@GET("competitors/sr%3acompetitor%3a7135/profile.json")
-    //suspend fun getCompetitors(@Query("api_key") apiKey: String):Competitor
+    @GET("competitors/{id}/profile.json")
+    suspend fun getDriver(@Path("id", encoded = true) id:String, @Query("api_key") apiKey: String): Driver
 }
 
 object RetrofitClient {

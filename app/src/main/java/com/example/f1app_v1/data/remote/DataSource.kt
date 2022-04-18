@@ -10,4 +10,6 @@ class DataSource(private val webService: WebService) {
 
     suspend fun getDriverIds(id:String)=webService.getDriverIds(id, AppConstants.API_KEY)
 
+    suspend fun getDriver(id:String)=webService.getDriver(id, AppConstants.API_KEY)
+
 }
