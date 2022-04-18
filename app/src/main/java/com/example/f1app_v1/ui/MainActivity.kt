@@ -29,13 +29,10 @@ class MainActivity : AppCompatActivity() {
                     "${item.id}"
                 )*/
             for(item in result){
-                item?.let {
-                    item.info.country_code_of_residence?.let {
+                if(item.info.country_code_of_residence.isNotEmpty()){
                         Log.d("Drivers","${item.info.country_code_of_residence}")
                     }
                 }
-
-            }
 
         })
 
