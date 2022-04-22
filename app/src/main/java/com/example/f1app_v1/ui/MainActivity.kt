@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
                     "${item.id}"
                 )*/
             for(item in result){
-                if(item.info.country_code_of_residence.isNotEmpty()){
-                        Log.d("Drivers","${item.info.country_code_of_residence}")
+                if(item.info.country_of_residence.isNotEmpty()){
+                        Log.d("Drivers","${item.info.country_of_residence}")
                     }
                 }
 
