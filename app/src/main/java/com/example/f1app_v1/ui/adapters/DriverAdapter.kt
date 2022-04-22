@@ -28,8 +28,8 @@ class DriverAdapter(
 
     private inner class DriversViewHolder(val binding:DriverItemBinding, val context: Context):BaseViewHolder<Driver>(binding.root){
         override fun bind(item: Driver) {
-            binding.txtName.text="Lewis"
-            binding.txtNationality.text="gbr"
+            binding.txtName.text=item.competitor.name
+            binding.txtNationality.text=item.competitor.nationality
         }
     }
 }
