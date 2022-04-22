@@ -14,15 +14,16 @@ import com.example.f1app_v1.repository.DriverRepositoryImpl
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel by viewModels<DriverViewModel> {
+    /*private val viewModel by viewModels<DriverViewModel> {
         DriverViewModelFactory(DriverRepositoryImpl(DataSource(RetrofitClient.webservice)))
-    }
+    }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel.fetchDrivers().observe(this, Observer { result ->
+
+       /* viewModel.fetchDrivers().observe(this, Observer { result ->
             /*for (item in result.stage.competitors)
                 Log.d(
                     "Competidores",
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-        })
+        })*/
 
 
     }
