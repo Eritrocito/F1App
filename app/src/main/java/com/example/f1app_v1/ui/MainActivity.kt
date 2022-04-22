@@ -23,11 +23,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel.fetchDrivers().observe(this, Observer { result ->
-            for (item in result.stage.competitors)
+            /*for (item in result.stage.competitors)
                 Log.d(
                     "Competidores",
-                    "${item.name}"
-                )
+                    "${item.id}"
+                )*/
+            for(item in result){
+                if(item.info.country_of_residence.isNotEmpty()){
+                        Log.d("Drivers","${item.info.country_of_residence}")
+                    }
+                }
+
         })
 
 

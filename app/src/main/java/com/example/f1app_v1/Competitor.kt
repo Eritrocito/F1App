@@ -1,5 +1,6 @@
-package com.example.f1app_v1
 
+package com.example.f1app_v1
+/*
 /*data class Season(
     val id: String = "",
 )
@@ -31,7 +32,7 @@ data class Info(
 
 data class Competitor(
     val info: Info
-)
+)*/
 
 
 
