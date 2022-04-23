@@ -5,4 +5,3 @@ Key features regarding its construction:
 - Based on MVVM architecture. Use of ViewModel and LiveData to handle information coming from the API
 - Use of Navigation Components with SafeArgs to navigate between fragments
 - Use of ViewBinding and RecyclerView
-- 
