@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="driverItemBack">#CC0000</color>
+    <color name="driverDetailBack">#F4765B</color>
 </resources>

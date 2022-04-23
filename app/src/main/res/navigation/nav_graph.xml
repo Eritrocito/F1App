@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/driverFragment">
+
+    <fragment
+        android:id="@+id/driverFragment"
+        android:name="com.example.f1app_v1.ui.Driver.DriverFragment"
+        android:label="DriverFragment" >
+        <action
+            android:id="@+id/action_driverFragment_to_driverDetailFragment"
+            app:destination="@id/driverDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/driverDetailFragment"
+        android:name="com.example.f1app_v1.ui.DriverDetail.DriverDetailFragment"
+        android:label="fragment_driver_detail"
+        tools:layout="@layout/fragment_driver_detail" >
+        <argument
+            android:name="salary"
+            app:argType="integer" />
+        <argument
+            android:name="dateofbirth"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="placeofbirth"
+            app:argType="string" />
+        <argument
+            android:name="countryofresidence"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="debut"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="first_victory"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="wcs_won"
+            app:argType="integer" />
+    </fragment>
+</navigation>
