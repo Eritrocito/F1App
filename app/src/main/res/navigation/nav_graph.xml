@@ -43,5 +43,13 @@
         <argument
             android:name="wcs_won"
             app:argType="integer" />
+        <argument
+            android:name="team_name"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="team_nationality"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 </navigation>

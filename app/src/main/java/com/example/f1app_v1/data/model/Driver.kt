@@ -43,8 +43,3 @@ data class Driver(
 }
 
 
-/*data class Info(
-    val placeofbirth: String = "",
-    val country_code_of_residence: String = "",
-    val weight: Int = -1
-)*/

@@ -51,7 +51,7 @@ class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDrive
     override fun onDriverClick(driver: Driver) {
         val item = driver.info
         val action = DriverFragmentDirections.actionDriverFragmentToDriverDetailFragment(item.salary,item.dateofbirth,item.placeofbirth,item.country_of_residence,
-        item.debut,item.first_victory,item.wcs_won)
+        item.debut,item.first_victory,item.wcs_won,driver.teams[0].name,driver.teams[0].nationality)
         findNavController().navigate(action)
     }
 

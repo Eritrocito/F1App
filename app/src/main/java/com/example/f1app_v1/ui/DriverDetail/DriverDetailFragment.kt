@@ -26,6 +26,8 @@ class DriverDetailFragment : Fragment(R.layout.fragment_driver_detail) {
         binding.txtFirstVictory.text="First victory: ${args.firstVictory}"
         binding.txtPlaceofbirth.text="Place of birth: ${args.placeofbirth}"
         binding.txtWcsWon.text="WCs won: ${args.wcsWon.toString()}"
+        binding.txtTeamName.text="Current team: ${args.teamName}"
+        binding.txtTeamNationality.text="Team nationality: ${args.teamNationality}"
 
     }
 }
