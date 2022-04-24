@@ -10,17 +10,19 @@ import com.example.f1app_v1.R
 import com.example.f1app_v1.RetrofitClient
 import com.example.f1app_v1.data.model.RaceBaseInfo
 import com.example.f1app_v1.data.remote.RaceDataSource
+import com.example.f1app_v1.data.remote.SeasonDataSource
 import com.example.f1app_v1.databinding.FragmentRaceBinding
 import com.example.f1app_v1.presentation.RaceViewModel
 import com.example.f1app_v1.presentation.RaceViewModelFactory
 import com.example.f1app_v1.repository.Race.RaceRepositoryImpl
+import com.example.f1app_v1.repository.Season.SeasonRepositoryImpl
 import com.example.f1app_v1.ui.adapters.RaceAdapter
 
 
 class RaceFragment : Fragment(R.layout.fragment_race),RaceAdapter.OnRaceClickListener {
 
     private val viewModel by viewModels<RaceViewModel> {
-        RaceViewModelFactory(RaceRepositoryImpl(RaceDataSource(RetrofitClient.webservice)))
+        RaceViewModelFactory(SeasonRepositoryImpl(SeasonDataSource(RetrofitClient.webservice)),RaceRepositoryImpl(RaceDataSource(RetrofitClient.webservice)))
     }
 
     private lateinit var binding: FragmentRaceBinding

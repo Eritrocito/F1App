@@ -5,13 +5,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
 import com.example.f1app_v1.repository.Driver.DriverRepository
 import com.example.f1app_v1.repository.Race.RaceRepository
+import com.example.f1app_v1.repository.Season.SeasonRepository
 import kotlinx.coroutines.Dispatchers
 
 
-class RaceViewModel(private val repo: RaceRepository):ViewModel() {
+class RaceViewModel(private val seasonRepo: SeasonRepository, private val repo: RaceRepository):ViewModel() {
 
     fun fetchRaceBaseInfo()=liveData(Dispatchers.IO){
-        var id = repo.getSeasonIds().stages[0].id //Position 0 corresponds to current season
+        var id = seasonRepo.getSeasonIds().stages[0].id //Position 0 corresponds to current season
         id=id.replace(":", "%3a")
         Thread.sleep(800)
         emit(repo.getRaceBaseInfo(id))
@@ -20,9 +21,9 @@ class RaceViewModel(private val repo: RaceRepository):ViewModel() {
 }
 
 
-class RaceViewModelFactory(private val repo: RaceRepository) : ViewModelProvider.Factory {
+class RaceViewModelFactory(private val seasonRepo: SeasonRepository,private val repo: RaceRepository) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return modelClass.getConstructor(RaceRepository::class.java).newInstance(repo)
+        return modelClass.getConstructor(SeasonRepository::class.java,RaceRepository::class.java).newInstance(seasonRepo,repo)
     }
 }

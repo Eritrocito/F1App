@@ -10,18 +10,20 @@ import com.example.f1app_v1.R
 import com.example.f1app_v1.RetrofitClient
 import com.example.f1app_v1.data.model.Driver
 import com.example.f1app_v1.data.remote.DataSource
+import com.example.f1app_v1.data.remote.SeasonDataSource
 import com.example.f1app_v1.databinding.DriverItemBinding
 import com.example.f1app_v1.databinding.FragmentDriverBinding
 import com.example.f1app_v1.presentation.DriverViewModel
 import com.example.f1app_v1.presentation.DriverViewModelFactory
 import com.example.f1app_v1.repository.Driver.DriverRepositoryImpl
+import com.example.f1app_v1.repository.Season.SeasonRepositoryImpl
 import com.example.f1app_v1.ui.adapters.DriverAdapter
 
 
 class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDriverClickListener {
 
     private val viewModel by viewModels<DriverViewModel> {
-        DriverViewModelFactory(DriverRepositoryImpl(DataSource(RetrofitClient.webservice)))
+        DriverViewModelFactory(SeasonRepositoryImpl(SeasonDataSource(RetrofitClient.webservice)),DriverRepositoryImpl(DataSource(RetrofitClient.webservice)))
     }
 
     private lateinit var binding: FragmentDriverBinding
