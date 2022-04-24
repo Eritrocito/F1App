@@ -10,6 +10,7 @@ import com.example.f1app_v1.R
 import com.example.f1app_v1.RetrofitClient
 import com.example.f1app_v1.data.model.Driver
 import com.example.f1app_v1.data.remote.DataSource
+import com.example.f1app_v1.databinding.DriverItemBinding
 import com.example.f1app_v1.databinding.FragmentDriverBinding
 import com.example.f1app_v1.presentation.DriverViewModel
 import com.example.f1app_v1.presentation.DriverViewModelFactory
