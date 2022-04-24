@@ -47,8 +47,8 @@ class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDrive
     }
 
     override fun onDriverClick(driver: DriverBaseInfo.Stage.Comp) {
-        var driverId: String = ""
-        driverId = driver.id
+        //var driverId: String = ""
+        var driverId = driver.id
         driverId = driverId.replace(":", "%3a")
         viewModel.fetchDriver(driverId).observe(viewLifecycleOwner, Observer {
             val item = it.info
@@ -65,12 +65,5 @@ class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDrive
             )
             findNavController().navigate(action)
         })
-
-        //val item = driver.
-        //val action = DriverFragmentDirections.actionDriverFragmentToDriverDetailFragment(item.salary,item.dateofbirth,item.placeofbirth,item.country_of_residence,
-        //item.debut,item.first_victory,item.wcs_won,driver.teams[0].name,driver.teams[0].nationality)
-        //findNavController().navigate(action)
     }
-
-
 }

@@ -49,6 +49,7 @@ class RaceAdapter(
         BaseViewHolder<RaceBaseInfo.Stage.Race>(binding.root) {
         override fun bind(item: RaceBaseInfo.Stage.Race) {
             binding.txtGPname.text = item.description
+            binding.txtStatus.text=item.status
             binding.txtStart.text = "Start ${item.scheduled}"
             binding.txtEnd.text = "End ${item.scheduled_end}"
         }

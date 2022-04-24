@@ -11,6 +11,7 @@ class RaceBaseInfo(
             val description: String = "",
             val scheduled: String = "",
             val scheduled_end: String = "",
+            val status:String="",
             val venue: Venue
         ) {
             inner class Venue(

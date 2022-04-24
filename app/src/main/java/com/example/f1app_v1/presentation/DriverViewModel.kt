@@ -21,21 +21,10 @@ class DriverViewModel(
         Thread.sleep(800)
         //Log.d("tiempo","${System.currentTimeMillis()-start}")
         val driverBaseInfo = repo.getDriverBaseInfo(id)
-        /*
-        var DriverList = mutableListOf<Driver>()
-        var driverId: String = ""
-        for (item in driverIds.stage.competitors) {
-            driverId = item.id
-            driverId = driverId.replace(":", "%3a")
-            Thread.sleep(800)
-            DriverList.add(repo.getDriver(driverId))
-        }
-        Thread.sleep(800)
-        emit(DriverList)*/
         emit(driverBaseInfo)
     }
 
-    fun fetchDriver(id:String)=liveData(Dispatchers.IO){
+    fun fetchDriver(id: String) = liveData(Dispatchers.IO) {
         emit(repo.getDriver(id))
     }
 }
