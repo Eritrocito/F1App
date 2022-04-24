@@ -1,6 +1,6 @@
 package com.example.f1app_v1.data.model
 
-data class DriverIds(
+data class DriverBaseInfo(
 
     val stage: Stage
 ) {
@@ -9,7 +9,8 @@ data class DriverIds(
     ) {
         inner class Comp(
             val id: String = "",
-            val name: String = ""
+            val name: String = "",
+            val nationality: String=""
         )
     }
 }

@@ -1,13 +1,9 @@
 package com.example.f1app_v1.repository.Driver
 
-import com.example.f1app_v1.data.model.Driver
-import com.example.f1app_v1.data.model.DriverIds
-import com.example.f1app_v1.data.model.RaceBaseInfo
-import com.example.f1app_v1.data.model.SeasonIdList
+import com.example.f1app_v1.data.model.*
 
 interface DriverRepository {
-    //suspend fun getSeasonIds():SeasonIdList
-    suspend fun getDriverIds(id:String): DriverIds
+    suspend fun getDriverBaseInfo(id:String): DriverBaseInfo
     suspend fun getDriver(id:String):Driver
 
 }
