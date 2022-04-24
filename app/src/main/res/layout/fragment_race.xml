@@ -7,12 +7,7 @@
     tools:context=".ui.Race.RaceFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2022 season"
-        android:textSize="30sp"
-        android:layout_gravity="center_horizontal"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_races"

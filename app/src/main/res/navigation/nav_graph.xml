@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/raceFragment">
+    app:startDestination="@id/mainScreenFragment">
 
     <fragment
         android:id="@+id/driverFragment"
@@ -87,5 +87,17 @@
         <argument
             android:name="laps"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="com.example.f1app_v1.ui.MainScreen.MainScreenFragment"
+        android:label="fragment_main_screen"
+        tools:layout="@layout/fragment_main_screen" >
+        <action
+            android:id="@+id/action_mainScreenFragment_to_driverFragment"
+            app:destination="@id/driverFragment" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_raceFragment"
+            app:destination="@id/raceFragment" />
     </fragment>
 </navigation>
