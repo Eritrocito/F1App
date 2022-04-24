@@ -1,27 +1,19 @@
 package com.example.f1app_v1.ui.Driver
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Adapter
-import androidx.core.os.bundleOf
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.example.f1app_v1.R
 import com.example.f1app_v1.RetrofitClient
 import com.example.f1app_v1.data.model.Driver
 import com.example.f1app_v1.data.remote.DataSource
-import com.example.f1app_v1.databinding.DriverItemBinding
 import com.example.f1app_v1.databinding.FragmentDriverBinding
 import com.example.f1app_v1.presentation.DriverViewModel
 import com.example.f1app_v1.presentation.DriverViewModelFactory
-import com.example.f1app_v1.repository.DriverRepositoryImpl
+import com.example.f1app_v1.repository.Driver.DriverRepositoryImpl
 import com.example.f1app_v1.ui.adapters.DriverAdapter
 
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/driverFragment">
+    app:startDestination="@id/raceFragment">
 
     <fragment
         android:id="@+id/driverFragment"
@@ -52,4 +52,9 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/raceFragment"
+        android:name="com.example.f1app_v1.ui.race.RaceFragment"
+        android:label="fragment_race"
+        tools:layout="@layout/fragment_race" />
 </navigation>

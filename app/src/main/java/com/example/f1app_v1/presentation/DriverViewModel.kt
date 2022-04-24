@@ -1,16 +1,13 @@
 package com.example.f1app_v1.presentation
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
 import com.example.f1app_v1.data.model.Driver
-import com.example.f1app_v1.repository.DriverRepository
+import com.example.f1app_v1.repository.Driver.DriverRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Dispatchers.IO
-import kotlin.system.measureTimeMillis
 
-class DriverViewModel(private val repo:DriverRepository):ViewModel() {
+class DriverViewModel(private val repo: DriverRepository):ViewModel() {
 
     fun fetchDrivers() = liveData(Dispatchers.IO)
     {
