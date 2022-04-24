@@ -54,7 +54,38 @@
     </fragment>
     <fragment
         android:id="@+id/raceFragment"
-        android:name="com.example.f1app_v1.ui.race.RaceFragment"
+        android:name="com.example.f1app_v1.ui.Race.RaceFragment"
         android:label="fragment_race"
-        tools:layout="@layout/fragment_race" />
+        tools:layout="@layout/fragment_race" >
+        <action
+            android:id="@+id/action_raceFragment_to_raceDetailFragment"
+            app:destination="@id/raceDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/raceDetailFragment"
+        android:name="com.example.f1app_v1.ui.RaceDetail.RaceDetailFragment"
+        android:label="fragment_race_detail"
+        tools:layout="@layout/fragment_race_detail" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="city"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="country"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="length"
+            app:argType="integer" />
+        <argument
+            android:name="debut"
+            app:argType="integer" />
+        <argument
+            android:name="laps"
+            app:argType="integer" />
+    </fragment>
 </navigation>
