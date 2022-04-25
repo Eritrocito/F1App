@@ -10,8 +10,14 @@ data class DriverBaseInfo(
         inner class Comp(
             val id: String = "",
             val name: String = "",
-            val nationality: String=""
-        )
+            val nationality: String="",
+            val result:Result
+        ){
+            inner class Result(
+                val points:Int,
+                val position:Int
+            )
+        }
     }
 }
 

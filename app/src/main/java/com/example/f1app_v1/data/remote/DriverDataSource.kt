@@ -4,7 +4,7 @@ import com.example.f1app_v1.application.AppConstants
 import com.example.f1app_v1.WebService
 import com.example.f1app_v1.data.model.SeasonIdList
 
-class DataSource(private val webService: WebService) {
+class DriverDataSource(private val webService: WebService) {
 
     suspend fun getDriverBaseInfo(id:String)=webService.getDriverBaseInfo(id, AppConstants.API_KEY)
 

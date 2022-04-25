@@ -9,11 +9,9 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.f1app_v1.R
 import com.example.f1app_v1.RetrofitClient
-import com.example.f1app_v1.data.model.Driver
 import com.example.f1app_v1.data.model.DriverBaseInfo
-import com.example.f1app_v1.data.remote.DataSource
+import com.example.f1app_v1.data.remote.DriverDataSource
 import com.example.f1app_v1.data.remote.SeasonDataSource
-import com.example.f1app_v1.databinding.DriverItemBinding
 import com.example.f1app_v1.databinding.FragmentDriverBinding
 import com.example.f1app_v1.presentation.DriverViewModel
 import com.example.f1app_v1.presentation.DriverViewModelFactory
@@ -27,7 +25,7 @@ class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDrive
     private val viewModel by viewModels<DriverViewModel> {
         DriverViewModelFactory(
             SeasonRepositoryImpl(SeasonDataSource(RetrofitClient.webservice)),
-            DriverRepositoryImpl(DataSource(RetrofitClient.webservice))
+            DriverRepositoryImpl(DriverDataSource(RetrofitClient.webservice))
         )
     }
 
@@ -47,12 +45,12 @@ class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDrive
     }
 
     override fun onDriverClick(driver: DriverBaseInfo.Stage.Comp) {
-        //var driverId: String = ""
+        Log.d("results","${driver.result.position}")
         var driverId = driver.id
         driverId = driverId.replace(":", "%3a")
         viewModel.fetchDriver(driverId).observe(viewLifecycleOwner, Observer {
 
-            //val item = it.info?:Driver(Driver.Info(),)
+
             var driverSalary: Int = -1
             var dateofbirth: String = ""
             var placeofbirth: String = ""

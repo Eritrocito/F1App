@@ -48,6 +48,8 @@ class DriverAdapter(
         override fun bind(item: DriverBaseInfo.Stage.Comp) {
             binding.txtName.text = item.name
             binding.txtNationality.text = item.nationality
+            binding.txtPosition.text="Position: ${item.result.position}"
+            binding.txtPoints.text="WC points: ${item.result.points.toString()}"
         }
     }
 }
