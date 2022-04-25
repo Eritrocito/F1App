@@ -51,15 +51,36 @@ class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDrive
         var driverId = driver.id
         driverId = driverId.replace(":", "%3a")
         viewModel.fetchDriver(driverId).observe(viewLifecycleOwner, Observer {
-            val item = it.info
+
+            //val item = it.info?:Driver(Driver.Info(),)
+            var driverSalary: Int = -1
+            var dateofbirth: String = ""
+            var placeofbirth: String = ""
+            var country_of_residence: String = ""
+            var debut: String = ""
+            var first_victory: String = ""
+            var wcs_won: Int = -1
+
+
+            it.info?.let {
+                driverSalary = it.salary
+                dateofbirth = it.dateofbirth
+                placeofbirth = it.placeofbirth
+                country_of_residence = it.country_of_residence
+                debut = it.debut
+                first_victory = it.first_victory
+                wcs_won = it.wcs_won
+            }
+
             val action = DriverFragmentDirections.actionDriverFragmentToDriverDetailFragment(
-                item.salary,
+                /*item.salary,
                 item.dateofbirth,
                 item.placeofbirth,
                 item.country_of_residence,
                 item.debut,
                 item.first_victory,
-                item.wcs_won,
+                item.wcs_won,*/
+                driverSalary,dateofbirth,placeofbirth,country_of_residence,debut,first_victory,wcs_won,
                 it.teams[0].name,
                 it.teams[0].nationality
             )

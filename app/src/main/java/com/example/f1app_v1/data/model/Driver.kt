@@ -17,15 +17,15 @@ data class DriverBaseInfo(
 
 
 data class Driver(
-    val competitor: Competitor,
-    val info: Info,
+    //val competitor: Competitor,
+    val info: Info?,
     val teams:List<Team>
 
 ) {
-    inner class Competitor(
+    /*inner class Competitor(
         val name: String = "",
         val nationality: String = ""
-    )
+    )*/
 
     inner class Team(
         val name:String="",

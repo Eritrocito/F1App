@@ -27,7 +27,8 @@
             app:nullable="true" />
         <argument
             android:name="placeofbirth"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <argument
             android:name="countryofresidence"
             app:argType="string"
