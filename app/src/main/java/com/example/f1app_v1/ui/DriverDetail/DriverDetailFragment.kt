@@ -13,19 +13,24 @@ import com.example.f1app_v1.databinding.FragmentDriverDetailBinding
 
 class DriverDetailFragment : Fragment(R.layout.fragment_driver_detail) {
 
-    private lateinit var binding:FragmentDriverDetailBinding
+    private lateinit var binding: FragmentDriverDetailBinding
     private val args by navArgs<DriverDetailFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding= FragmentDriverDetailBinding.bind(view)
-        binding.txtSalary.text="Salary: USD ${args.salary.toString()}"
-        binding.txtCountryofresidence.text="Country of residence: ${args.countryofresidence}"
-        binding.txtDateofbirth.text="Date of birth: ${args.dateofbirth}"
-        binding.txtDebut.text="Debut: ${args.debut}"
-        binding.txtFirstVictory.text="First victory: ${args.firstVictory}"
-        binding.txtPlaceofbirth.text="Place of birth: ${args.placeofbirth}"
-        binding.txtWcsWon.text="WCs won: ${args.wcsWon.toString()}"
+        binding = FragmentDriverDetailBinding.bind(view)
+
+        binding.txtSalary.text = "Salary: USD ${args.salary.toString()}"
+        binding.txtCountryofresidence.text =
+            "Country of residence: ${args.countryofresidence ?: "Not available"}"
+        binding.txtDateofbirth.text = "Date of birth: ${args.dateofbirth ?: "Not available"}"
+        binding.txtDebut.text = "Debut: ${args.debut ?: "Not available"}"
+        binding.txtFirstVictory.text = "First victory: ${args.firstVictory?: "Not available"}"
+        binding.txtPlaceofbirth.text = "Place of birth: ${args.placeofbirth ?: "Not available"}"
+        binding.txtWcsWon.text = "WCs won: ${args.wcsWon.toString()}"
+        binding.txtTeamName.text = "Current team: ${args.teamName ?: "Not available"}"
+        binding.txtTeamNationality.text =
+            "Team nationality: ${args.teamNationality ?: "Not available"}"
 
     }
 }

@@ -1,6 +1,6 @@
 package com.example.f1app_v1.data.model
 
-data class DriverIds(
+data class DriverBaseInfo(
 
     val stage: Stage
 ) {
@@ -9,22 +9,23 @@ data class DriverIds(
     ) {
         inner class Comp(
             val id: String = "",
-            val name: String = ""
+            val name: String = "",
+            val nationality: String=""
         )
     }
 }
 
 
 data class Driver(
-    val competitor: Competitor,
-    val info: Info,
+    //val competitor: Competitor,
+    val info: Info?,
     val teams:List<Team>
 
 ) {
-    inner class Competitor(
+    /*inner class Competitor(
         val name: String = "",
         val nationality: String = ""
-    )
+    )*/
 
     inner class Team(
         val name:String="",
@@ -43,8 +44,3 @@ data class Driver(
 }
 
 
-/*data class Info(
-    val placeofbirth: String = "",
-    val country_code_of_residence: String = "",
-    val weight: Int = -1
-)*/

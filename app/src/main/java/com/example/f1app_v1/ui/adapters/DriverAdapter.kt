@@ -7,15 +7,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.f1app_v1.core.BaseViewHolder
 import com.example.f1app_v1.data.model.Driver
+import com.example.f1app_v1.data.model.DriverBaseInfo
 import com.example.f1app_v1.databinding.DriverItemBinding
 
 class DriverAdapter(
-    private val driverList: List<Driver>,
+    private val driverList: DriverBaseInfo,//List<Driver>,
     private val itemClickListener: OnDriverClickListener
 ) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnDriverClickListener {
-        fun onDriverClick(driver: Driver)
+        fun onDriverClick(driver: DriverBaseInfo.Stage.Comp)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
@@ -27,7 +28,7 @@ class DriverAdapter(
             val position =
                 holder.bindingAdapterPosition.takeIf { it != DiffUtil.DiffResult.NO_POSITION }
                     ?: return@setOnClickListener
-            itemClickListener.onDriverClick(driverList[position])
+            itemClickListener.onDriverClick(driverList.stage.competitors[position])
         }
 
         return holder
@@ -35,18 +36,18 @@ class DriverAdapter(
 
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
         when (holder) {
-            is DriversViewHolder -> holder.bind(driverList[position])
+            is DriversViewHolder -> holder.bind(driverList.stage.competitors[position])
         }
 
     }
 
-    override fun getItemCount(): Int = driverList.size
+    override fun getItemCount(): Int = driverList.stage.competitors.size
 
     private inner class DriversViewHolder(val binding: DriverItemBinding, val context: Context) :
-        BaseViewHolder<Driver>(binding.root) {
-        override fun bind(item: Driver) {
-            binding.txtName.text = item.competitor.name
-            binding.txtNationality.text = item.competitor.nationality
+        BaseViewHolder<DriverBaseInfo.Stage.Comp>(binding.root) {
+        override fun bind(item: DriverBaseInfo.Stage.Comp) {
+            binding.txtName.text = item.name
+            binding.txtNationality.text = item.nationality
         }
     }
 }
