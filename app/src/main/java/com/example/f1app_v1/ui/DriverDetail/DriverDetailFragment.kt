@@ -23,12 +23,11 @@ class DriverDetailFragment : Fragment(R.layout.fragment_driver_detail) {
         binding.txtSalary.text = "Salary: ${args.salary}"
         binding.txtCountryofresidence.text = "Country of residence: ${args.countryofresidence}"
         binding.txtBirth.text = "Birth: ${args.dateofbirth}, ${args.placeofbirth}"
-        //binding.txtPlaceofbirth.text = "Place of birth: ${args.placeofbirth}"
         binding.txtDebut.text = "Debut: ${args.debut}"
         binding.txtFirstVictory.text = "First victory: ${args.firstVictory}"
         binding.txtWcsWon.text = "WCs won: ${args.wcsWon.toString()}"
-        binding.txtTeamName.text = "Current team: ${args.teamName}"
-        binding.txtTeamNationality.text = "Team nationality: ${args.teamNationality}"
+        binding.txtTeamName.text = "${args.teamName}"
+        binding.txtTeamNationality.text = " ${args.teamNationality}"
 
     }
 }

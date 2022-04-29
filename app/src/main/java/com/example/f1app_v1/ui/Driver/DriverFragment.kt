@@ -46,7 +46,7 @@ class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDrive
     }
 
     override fun onDriverClick(driver: DriverBaseInfo.Stage.Comp) {
-        Log.d("results", "${driver.result.position}")
+        //Log.d("results", "${driver.result.position}")
         var driverId = driver.id
         driverId = driverId.replace(":", "%3a")
         viewModel.fetchDriver(driverId).observe(viewLifecycleOwner, Observer { driver ->
