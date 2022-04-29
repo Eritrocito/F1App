@@ -20,7 +20,8 @@
         tools:layout="@layout/fragment_driver_detail" >
         <argument
             android:name="salary"
-            app:argType="integer" />
+            app:argType="string"
+            app:nullable="true" />
         <argument
             android:name="dateofbirth"
             app:argType="string"

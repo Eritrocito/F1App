@@ -39,13 +39,13 @@ data class Driver(
     )
 
     inner class Info(
-        val placeofbirth: String = "",
-        val dateofbirth: String = "",
-        val country_of_residence: String = "",
-        val salary: Int = -1,
-        val debut: String = "",
-        val first_victory: String = "",
-        val wcs_won: Int = -1
+        val placeofbirth: String? = "",
+        val dateofbirth: String? = "",
+        val country_of_residence: String? = "",
+        val salary: Int? = -1,
+        val debut: String? = "",
+        val first_victory: String? = "",
+        val wcs_won: Int? = -1
     )
 }
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -45,44 +46,32 @@ class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDrive
     }
 
     override fun onDriverClick(driver: DriverBaseInfo.Stage.Comp) {
-        Log.d("results","${driver.result.position}")
+        Log.d("results", "${driver.result.position}")
         var driverId = driver.id
         driverId = driverId.replace(":", "%3a")
-        viewModel.fetchDriver(driverId).observe(viewLifecycleOwner, Observer {
+        viewModel.fetchDriver(driverId).observe(viewLifecycleOwner, Observer { driver ->
+
+            driver.info?.let {
+                val action = DriverFragmentDirections.actionDriverFragmentToDriverDetailFragment(
+                    //it.salary?.toString() ?: "-",
+                    it.salary?.let {"USD $it" } ?: "-",
+                    it.dateofbirth ?: "-",
+                    it.placeofbirth ?: "-",
+                    it.country_of_residence ?: "-",
+                    it.debut ?: "-",
+                    it.first_victory ?: "-",
+                    it.wcs_won ?: 0,
+                    driver.teams[0].name ?: "-",
+                    driver.teams[0].nationality ?: "-"
+                )
+                findNavController().navigate(action)
+            } ?: Toast.makeText(
+                this.context,
+                "Driver information not available right now",
+                Toast.LENGTH_SHORT
+            ).show()
 
 
-            var driverSalary: Int = -1
-            var dateofbirth: String = ""
-            var placeofbirth: String = ""
-            var country_of_residence: String = ""
-            var debut: String = ""
-            var first_victory: String = ""
-            var wcs_won: Int = -1
-
-
-            it.info?.let {
-                driverSalary = it.salary
-                dateofbirth = it.dateofbirth
-                placeofbirth = it.placeofbirth
-                country_of_residence = it.country_of_residence
-                debut = it.debut
-                first_victory = it.first_victory
-                wcs_won = it.wcs_won
-            }
-
-            val action = DriverFragmentDirections.actionDriverFragmentToDriverDetailFragment(
-                /*item.salary,
-                item.dateofbirth,
-                item.placeofbirth,
-                item.country_of_residence,
-                item.debut,
-                item.first_victory,
-                item.wcs_won,*/
-                driverSalary,dateofbirth,placeofbirth,country_of_residence,debut,first_victory,wcs_won,
-                it.teams[0].name,
-                it.teams[0].nationality
-            )
-            findNavController().navigate(action)
         })
     }
 }
