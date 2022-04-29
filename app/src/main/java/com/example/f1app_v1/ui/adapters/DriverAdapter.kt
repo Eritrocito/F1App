@@ -46,10 +46,13 @@ class DriverAdapter(
     private inner class DriversViewHolder(val binding: DriverItemBinding, val context: Context) :
         BaseViewHolder<DriverBaseInfo.Stage.Comp>(binding.root) {
         override fun bind(item: DriverBaseInfo.Stage.Comp) {
-            binding.txtName.text = item.name
+            binding.txtName.text = item.name.let {
+                val splitted = it.split(",")
+                "${splitted[1]} ${splitted[0]} "
+            }
             binding.txtNationality.text = item.nationality
-            binding.txtPosition.text="Position: ${item.result.position}"
-            binding.txtPoints.text="WC points: ${item.result.points.toString()}"
+            binding.txtPosition.text =
+                "${item.result.position} - ${item.result.points.toString()} points"
         }
     }
 }

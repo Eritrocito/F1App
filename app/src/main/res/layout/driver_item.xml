@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:clipToPadding="true"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -21,6 +21,24 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@color/driverItemBack">
+
+            <TextView
+                android:id="@+id/txt_position"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_name"
+                android:background="@drawable/driver_item_back"
+                tools:text="Position - 80 points" />
+
 
             <TextView
                 android:id="@+id/txt_name"
@@ -36,6 +54,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/driverDetailBack"
                 tools:text="Fernando Alonso" />
 
             <TextView
@@ -52,39 +71,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_name"
+                android:background="@color/driverDetailBack"
                 tools:text="Spain" />
 
-            <TextView
-                android:id="@+id/txt_position"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:gravity="center_horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_name"
-                tools:text="Position" />
 
-            <TextView
-                android:id="@+id/txt_points"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:gravity="center_horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_name"
-                tools:text="WC points" />
+
+
 
         </LinearLayout>
 
