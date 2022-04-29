@@ -22,8 +22,8 @@ class DriverDetailFragment : Fragment(R.layout.fragment_driver_detail) {
 
         binding.txtSalary.text = "Salary: ${args.salary}"
         binding.txtCountryofresidence.text = "Country of residence: ${args.countryofresidence}"
-        binding.txtDateofbirth.text = "Date of birth: ${args.dateofbirth}"
-        binding.txtPlaceofbirth.text = "Place of birth: ${args.placeofbirth}"
+        binding.txtBirth.text = "Birth: ${args.dateofbirth}, ${args.placeofbirth}"
+        //binding.txtPlaceofbirth.text = "Place of birth: ${args.placeofbirth}"
         binding.txtDebut.text = "Debut: ${args.debut}"
         binding.txtFirstVictory.text = "First victory: ${args.firstVictory}"
         binding.txtWcsWon.text = "WCs won: ${args.wcsWon.toString()}"

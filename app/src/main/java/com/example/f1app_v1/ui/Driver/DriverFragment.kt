@@ -54,7 +54,7 @@ class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDrive
             driver.info?.let {
                 val action = DriverFragmentDirections.actionDriverFragmentToDriverDetailFragment(
                     //it.salary?.toString() ?: "-",
-                    it.salary?.let {"USD $it" } ?: "-",
+                    it.salary?.let {"USD ${it.toFloat().div(1000000)}M" } ?: "-",
                     it.dateofbirth ?: "-",
                     it.placeofbirth ?: "-",
                     it.country_of_residence ?: "-",

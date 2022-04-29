@@ -28,28 +28,18 @@
             android:gravity="center_horizontal"
             />
     <TextView
-        android:id="@+id/txt_dateofbirth"
+        android:id="@+id/txtBirth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:textSize="30sp"
         android:textStyle="bold"
-        tools:text="dateofbirth"
+        tools:text="birth"
         android:background="@color/driverItemBack"
         android:textColor="@color/black"
         />
 
-    <TextView
-        android:id="@+id/txt_placeofbirth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        tools:text="placeofbirth"
-        android:background="@color/driverItemBack"
-        android:textColor="@color/black"
-        />
+
     <TextView
         android:id="@+id/txt_countryofresidence"
         android:layout_width="match_parent"
