@@ -20,6 +20,10 @@ class DriverDetailFragment : Fragment(R.layout.fragment_driver_detail) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDriverDetailBinding.bind(view)
 
+        binding.txtDriverName.text = args.name.let {
+            val splitted = it.split(",")
+            "${splitted[1]} ${splitted[0]} "
+        }
         binding.txtSalary.text = "Salary: ${args.salary}"
         binding.txtCountryofresidence.text = "Country of residence: ${args.countryofresidence}"
         binding.txtBirth.text = "Birth: ${args.dateofbirth}, ${args.placeofbirth}"

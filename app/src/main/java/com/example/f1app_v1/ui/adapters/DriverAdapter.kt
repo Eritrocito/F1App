@@ -52,7 +52,7 @@ class DriverAdapter(
             }
             binding.txtNationality.text = item.nationality
             binding.txtPosition.text =
-                "${item.result.position} - ${item.result.points} points"
+                "${item.result.position} - ${item.result.points} ${if (item.result.points > 1) "points" else "point"}"
         }
     }
 }

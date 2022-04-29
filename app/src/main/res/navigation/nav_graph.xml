@@ -45,6 +45,9 @@
         <argument
             android:name="team_nationality"
             app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/raceFragment"
@@ -93,5 +96,44 @@
         <action
             android:id="@+id/action_mainScreenFragment_to_raceFragment"
             app:destination="@id/raceFragment" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_teamFragment"
+            app:destination="@id/teamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamFragment"
+        android:name="com.example.f1app_v1.ui.team.TeamFragment"
+        android:label="TeamFragment" >
+        <action
+            android:id="@+id/action_teamFragment_to_teamDetailFragment"
+            app:destination="@id/teamDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamDetailFragment"
+        android:name="com.example.f1app_v1.ui.team.TeamDetailFragment"
+        android:label="fragment_team_detail"
+        tools:layout="@layout/fragment_team_detail" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="country_of_residence"
+            app:argType="string" />
+        <argument
+            android:name="debut"
+            app:argType="string" />
+        <argument
+            android:name="year_of_foundation"
+            app:argType="string" />
+        <argument
+            android:name="comp1_name"
+            app:argType="string" />
+        <argument android:name="comp1_nat" />
+        <argument
+            android:name="comp2_name"
+            app:argType="string" />
+        <argument
+            android:name="comp2_nat"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -72,7 +72,8 @@ class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDrive
                     it.first_victory ?: "-",
                     it.wcs_won ?: 0,
                     driver.teams[0].name ?: "-",
-                    driver.teams[0].nationality ?: "-"
+                    driver.teams[0].nationality ?: "-",
+                    driver.competitor.name ?: "- "
                 )
                 findNavController().navigate(action)
             } ?: Toast.makeText(

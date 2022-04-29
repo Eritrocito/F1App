@@ -12,19 +12,23 @@ import com.example.f1app_v1.databinding.FragmentMainScreenBinding
 
 class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
-        private lateinit var itemBinding:FragmentMainScreenBinding
+    private lateinit var itemBinding: FragmentMainScreenBinding
 
-        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-                super.onViewCreated(view, savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-                itemBinding= FragmentMainScreenBinding.bind(view)
-                itemBinding.btnRaces.setOnClickListener {
-                        val action=MainScreenFragmentDirections.actionMainScreenFragmentToRaceFragment()
-                        findNavController().navigate(action)
-                }
-                itemBinding.btnDrivers.setOnClickListener {
-                        val action=MainScreenFragmentDirections.actionMainScreenFragmentToDriverFragment()
-                        findNavController().navigate(action)
-                }
+        itemBinding = FragmentMainScreenBinding.bind(view)
+        itemBinding.btnRaces.setOnClickListener {
+            val action = MainScreenFragmentDirections.actionMainScreenFragmentToRaceFragment()
+            findNavController().navigate(action)
         }
+        itemBinding.btnDrivers.setOnClickListener {
+            val action = MainScreenFragmentDirections.actionMainScreenFragmentToDriverFragment()
+            findNavController().navigate(action)
+        }
+        itemBinding.btnConstructors.setOnClickListener {
+            val action = MainScreenFragmentDirections.actionMainScreenFragmentToTeamFragment()
+            findNavController().navigate(action)
+        }
+    }
 }
