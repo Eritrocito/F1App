@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.f1app_v1.R
 import com.example.f1app_v1.RetrofitClient
+import com.example.f1app_v1.core.Result
 import com.example.f1app_v1.data.model.DriverBaseInfo
 import com.example.f1app_v1.data.remote.DriverDataSource
 import com.example.f1app_v1.data.remote.SeasonDataSource
@@ -39,8 +40,17 @@ class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDrive
         binding = FragmentDriverBinding.bind(view)
 
         viewModel.fetchDriversBaseInfo().observe(viewLifecycleOwner, Observer { result ->
-            adapter = DriverAdapter(result, this@DriverFragment)
-            binding.rvDrivers.adapter = adapter
+            when(result){
+                is Result.Loading ->{
+                    binding.progressBar.visibility=View.VISIBLE
+                }
+                is Result.Success -> {
+                    binding.progressBar.visibility=View.GONE
+                    adapter = DriverAdapter(result.data, this@DriverFragment)
+                    binding.rvDrivers.adapter = adapter
+                }
+            }
+
 
         })
     }
