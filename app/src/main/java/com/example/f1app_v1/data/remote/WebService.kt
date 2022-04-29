@@ -23,6 +23,12 @@ interface WebService {
 
     @GET("sport_events/{id}/summary.json")
     suspend fun getRaceBaseInfo(@Path("id",encoded=true) id:String, @Query("api_key") apiKey: String):RaceBaseInfo
+
+    @GET("sport_events/{id}/summary.json")
+    suspend fun getTeamBaseInfo(@Path("id",encoded=true) id:String, @Query("api_key") apiKey: String):TeamBaseInfo
+
+    @GET("teams/{id}/profile.json")
+    suspend fun getTeam(@Path("id",encoded=true) id:String, @Query("api_key") apiKey: String):Team
 }
 
 object RetrofitClient {

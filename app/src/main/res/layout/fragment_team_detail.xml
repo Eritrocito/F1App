@@ -9,7 +9,7 @@
     tools:context=".ui.DriverDetail.DriverDetailFragment">
 
     <TextView
-        android:id="@+id/txt_driver_name"
+        android:id="@+id/txt_team_name"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/driver_champ_back"
@@ -18,7 +18,7 @@
         android:textColor="@color/black"
         android:textSize="35dp"
         android:textStyle="bold"
-        android:text="Max Verstappen" />
+        tools:text="Ferrari" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -38,22 +38,10 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/driver_item_back"
                 android:gravity="center"
-                android:text="Personal info"
+                android:text="Info"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txtBirth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/driverDetailBack"
-                android:gravity="center_horizontal"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                tools:text="birth" />
-
 
             <TextView
                 android:id="@+id/txt_countryofresidence"
@@ -64,10 +52,11 @@
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                tools:text="countryofresidence" />
+                tools:text="country" />
+
 
             <TextView
-                android:id="@+id/txt_salary"
+                android:id="@+id/txt_foundation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/driverDetailBack"
@@ -75,7 +64,7 @@
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                tools:text="salary" />
+                tools:text="founded" />
 
             <TextView
                 android:id="@+id/txt_debut"
@@ -87,28 +76,6 @@
                 android:textSize="30sp"
                 android:textStyle="bold"
                 tools:text="debut" />
-
-            <TextView
-                android:id="@+id/txt_first_victory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/driverDetailBack"
-                android:gravity="center_horizontal"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                tools:text="first_victory" />
-
-            <TextView
-                android:id="@+id/txt_wcs_won"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/driverDetailBack"
-                android:gravity="center_horizontal"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                tools:text="wcs_won" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -131,13 +98,13 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/driver_item_back"
                 android:gravity="center_horizontal"
-                android:text="Current team"
+                android:text="Drivers"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txt_team_name"
+                android:id="@+id/txt_comp1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/driverDetailBack"
@@ -145,10 +112,10 @@
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                tools:text="Team name" />
+                tools:text="Carlos Sainz, Spain" />
 
             <TextView
-                android:id="@+id/txt_team_nationality"
+                android:id="@+id/txt_comp2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/driverDetailBack"
@@ -156,7 +123,7 @@
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                tools:text="Team nationality" />
+                tools:text="Charles Leclerc, Monaco" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

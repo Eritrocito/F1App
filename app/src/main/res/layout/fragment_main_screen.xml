@@ -34,7 +34,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_races"
-        android:text="Drivers"/>
+        android:text="Drivers standings"/>
+
+    <Button
+        android:id="@+id/btn_constructors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Constructors standings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_drivers" />
 
 
 

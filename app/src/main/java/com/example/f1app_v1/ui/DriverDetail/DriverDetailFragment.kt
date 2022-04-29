@@ -20,17 +20,18 @@ class DriverDetailFragment : Fragment(R.layout.fragment_driver_detail) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDriverDetailBinding.bind(view)
 
-        binding.txtSalary.text = "Salary: USD ${args.salary.toString()}"
-        binding.txtCountryofresidence.text =
-            "Country of residence: ${args.countryofresidence ?: "Not available"}"
-        binding.txtDateofbirth.text = "Date of birth: ${args.dateofbirth ?: "Not available"}"
-        binding.txtDebut.text = "Debut: ${args.debut ?: "Not available"}"
-        binding.txtFirstVictory.text = "First victory: ${args.firstVictory?: "Not available"}"
-        binding.txtPlaceofbirth.text = "Place of birth: ${args.placeofbirth ?: "Not available"}"
+        binding.txtDriverName.text = args.name.let {
+            val splitted = it.split(",")
+            "${splitted[1]} ${splitted[0]} "
+        }
+        binding.txtSalary.text = "Salary: ${args.salary}"
+        binding.txtCountryofresidence.text = "Country of residence: ${args.countryofresidence}"
+        binding.txtBirth.text = "Birth: ${args.dateofbirth}, ${args.placeofbirth}"
+        binding.txtDebut.text = "Debut: ${args.debut}"
+        binding.txtFirstVictory.text = "First victory: ${args.firstVictory}"
         binding.txtWcsWon.text = "WCs won: ${args.wcsWon.toString()}"
-        binding.txtTeamName.text = "Current team: ${args.teamName ?: "Not available"}"
-        binding.txtTeamNationality.text =
-            "Team nationality: ${args.teamNationality ?: "Not available"}"
+        binding.txtTeamName.text = "${args.teamName}"
+        binding.txtTeamNationality.text = " ${args.teamNationality}"
 
     }
 }
