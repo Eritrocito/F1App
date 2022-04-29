@@ -65,25 +65,25 @@
         tools:layout="@layout/fragment_race_detail" >
         <argument
             android:name="name"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
         <argument
             android:name="city"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
         <argument
             android:name="country"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
         <argument
             android:name="length"
-            app:argType="integer" />
+            app:argType="string" />
         <argument
             android:name="debut"
-            app:argType="integer" />
+            app:argType="string" />
         <argument
             android:name="laps"
-            app:argType="integer" />
+            app:argType="string" />
+        <argument
+            android:name="gp_name"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/mainScreenFragment"

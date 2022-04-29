@@ -18,9 +18,9 @@ class RaceBaseInfo(
                 val name:String="",
                 val city:String="",
                 val country:String="",
-                val length:Int=-1,
-                val debut:Int=-1,
-                val laps:Int=-1
+                val length:Int?=-1,
+                val debut:Int?=-1,
+                val laps:Int?=-1
             )
         }
     }

@@ -41,7 +41,8 @@ class RaceFragment : Fragment(R.layout.fragment_race),RaceAdapter.OnRaceClickLis
 
     override fun onRaceClick(race: RaceBaseInfo.Stage.Race) {
         val item= race.venue
-        val action = RaceFragmentDirections.actionRaceFragmentToRaceDetailFragment(item.name,item.city,item.country,item.length,item.debut,item.laps)
+        val action = RaceFragmentDirections.actionRaceFragmentToRaceDetailFragment(item.name,item.city,item.country,
+            item.length.toString()?: "-" ,item.debut.toString()?: "-",item.laps.toString()?: "-",race.description)
         findNavController().navigate(action)
     }
 }

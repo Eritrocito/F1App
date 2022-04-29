@@ -50,8 +50,8 @@ class RaceAdapter(
         override fun bind(item: RaceBaseInfo.Stage.Race) {
             binding.txtGPname.text = item.description
             binding.txtStatus.text=item.status
-            binding.txtStart.text = "Start ${item.scheduled}"
-            binding.txtEnd.text = "End ${item.scheduled_end}"
+            binding.txtStart.text = "Start ${item.scheduled.split("T")[0]}"
+            binding.txtEnd.text = "End ${item.scheduled_end.split("T")[0]}"
         }
     }
 }
