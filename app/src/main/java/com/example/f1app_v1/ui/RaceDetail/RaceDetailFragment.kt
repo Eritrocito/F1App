@@ -21,6 +21,7 @@ class RaceDetailFragment : Fragment(R.layout.fragment_race_detail) {
         super.onViewCreated(view, savedInstanceState)
 
         binding= FragmentRaceDetailBinding.bind(view)
+        binding.txtGpName.text=args.gpName
         binding.txtCircuit.text="${args.name}"
         binding.txtCity.text="City: ${args.city}"
         binding.txtCountry.text="Country: ${args.country}"

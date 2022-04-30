@@ -78,7 +78,7 @@ class TeamFragment : Fragment(R.layout.fragment_team), TeamAdapter.OnTeamClickLi
                 findNavController().navigate(action)
             } ?: Toast.makeText(
                 this.context,
-                "Driver information not available right now",
+                "Team information not available right now",
                 Toast.LENGTH_SHORT
             ).show()
         })
