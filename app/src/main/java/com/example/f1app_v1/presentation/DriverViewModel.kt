@@ -17,6 +17,7 @@ class DriverViewModel(
     fun fetchDriversBaseInfo() = liveData(Dispatchers.IO)
     {
         emit(Result.Loading())
+        try{
         //val start = System.currentTimeMillis()
         var id = seasonRepo.getSeasonIds().stages[0].id //Position 0 corresponds to current season
         id = id.replace(":", "%3a")
@@ -24,6 +25,9 @@ class DriverViewModel(
         //Log.d("tiempo","${System.currentTimeMillis()-start}")
         val driverBaseInfo = repo.getDriverBaseInfo(id)
         emit(Result.Success(driverBaseInfo))
+        }catch(e:Exception){
+            emit(Result.Failure(e))
+        }
     }
 
     fun fetchDriver(id: String) = liveData(Dispatchers.IO) {

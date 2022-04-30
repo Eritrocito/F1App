@@ -19,7 +19,6 @@ class RaceDetailFragment : Fragment(R.layout.fragment_race_detail) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding= FragmentRaceDetailBinding.bind(view)
         binding.txtGpName.text=args.gpName
         binding.txtCircuit.text="${args.name}"
@@ -28,8 +27,5 @@ class RaceDetailFragment : Fragment(R.layout.fragment_race_detail) {
         binding.txtDebut.text="Debut: ${args.debut}"
         binding.txtLength.text="Length: ${args.length}m"
         binding.txtLaps.text="Laps: ${args.laps}"
-
-
-
     }
 }

@@ -14,10 +14,15 @@ class RaceViewModel(private val seasonRepo: SeasonRepository, private val repo: 
 
     fun fetchRaceBaseInfo()=liveData(Dispatchers.IO){
         emit(Result.Loading())
+        try{
         var id = seasonRepo.getSeasonIds().stages[0].id //Position 0 corresponds to current season
         id=id.replace(":", "%3a")
         Thread.sleep(800)
-        emit(Result.Success(repo.getRaceBaseInfo(id)))
+        emit(Result.Success(repo.getRaceBaseInfo(id)))}
+        catch (e: Exception){
+            emit(Result.Failure(e))
+        }
+
 
     }
 }

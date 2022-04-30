@@ -49,6 +49,10 @@ class DriverFragment : Fragment(R.layout.fragment_driver), DriverAdapter.OnDrive
                     adapter = DriverAdapter(result.data, this@DriverFragment)
                     binding.rvDrivers.adapter = adapter
                 }
+                is Result.Failure ->{
+                    binding.progressBar.visibility=View.GONE
+                    Toast.makeText(this.context,"The information can´t be loaded",Toast.LENGTH_SHORT).show()
+                }
             }
 
 

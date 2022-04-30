@@ -56,6 +56,10 @@ class TeamFragment : Fragment(R.layout.fragment_team), TeamAdapter.OnTeamClickLi
                     adapter = TeamAdapter(result.data, this@TeamFragment)
                     binding.rvTeams.adapter = adapter
                 }
+                is Result.Failure ->{
+                    binding.progressBar.visibility=View.GONE
+                    Toast.makeText(this.context,"The information can´t be loaded",Toast.LENGTH_SHORT).show()
+                }
             }
 
 
@@ -70,8 +74,8 @@ class TeamFragment : Fragment(R.layout.fragment_team), TeamAdapter.OnTeamClickLi
 
             team.info?.let {
                 val action = TeamFragmentDirections.actionTeamFragmentToTeamDetailFragment(
-                    team.team.name, it.country_of_residence, it.debut,
-                    it.foundation_year, team.competitors[0].name, team.competitors[0].nationality,
+                    team.team.name, it.country_of_residence?: "-", it.debut ?: "-",
+                    it.foundation_year ?: "-", team.competitors[0].name, team.competitors[0].nationality,
                     team.competitors[1].name, team.competitors[1].nationality
                 )
 
