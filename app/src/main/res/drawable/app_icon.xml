@@ -4,10 +4,11 @@
     android:viewportWidth="714.9733"
     android:viewportHeight="178.62666">
     <group
-        android:pivotX="350"
-        android:pivotY="80"
-        android:scaleX="0.5"
-        android:scaleY="0.5">
+        android:pivotX="300"
+        android:pivotY="100"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:gravity="fill_vertical|fill_horizontal">
         <path
             android:fillColor="#ed2425"
             android:fillType="nonZero"
@@ -23,7 +24,16 @@
             android:fillType="nonZero"
             android:pathData="m537.5,177.929l-110.72,-0L604.253,-0.003l110.719,-0L537.5,177.929"
             android:strokeColor="#00000000" />
-
+        <path
+            android:fillColor="#ed2425"
+            android:fillType="nonZero"
+            android:pathData="m589.857,178.627l0,-17.964l-6.717,-0l0,-3.657l17.992,-0l0,3.657l-6.703,-0L594.429,178.627l-4.572,-0"
+            android:strokeColor="#00000000" />
+        <path
+            android:fillColor="#ed2425"
+            android:fillType="nonZero"
+            android:pathData="m604.02,178.627l0,-21.621l6.841,-0l4.108,14.749 4.061,-14.749l6.857,-0L625.888,178.627l-4.247,-0L621.641,161.607L617.147,178.627l-4.401,-0L608.267,161.607L608.267,178.627l-4.247,-0"
+            android:strokeColor="#00000000" />
 
 
     </group>

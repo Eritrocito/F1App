@@ -17,12 +17,16 @@ import com.example.f1app_v1.presentation.RaceViewModelFactory
 import com.example.f1app_v1.repository.Race.RaceRepositoryImpl
 import com.example.f1app_v1.repository.Season.SeasonRepositoryImpl
 import com.example.f1app_v1.ui.adapters.RaceAdapter
+import com.example.f1app_v1.core.Result
 
 
-class RaceFragment : Fragment(R.layout.fragment_race),RaceAdapter.OnRaceClickListener {
+class RaceFragment : Fragment(R.layout.fragment_race), RaceAdapter.OnRaceClickListener {
 
     private val viewModel by viewModels<RaceViewModel> {
-        RaceViewModelFactory(SeasonRepositoryImpl(SeasonDataSource(RetrofitClient.webservice)),RaceRepositoryImpl(RaceDataSource(RetrofitClient.webservice)))
+        RaceViewModelFactory(
+            SeasonRepositoryImpl(SeasonDataSource(RetrofitClient.webservice)),
+            RaceRepositoryImpl(RaceDataSource(RetrofitClient.webservice))
+        )
     }
 
     private lateinit var binding: FragmentRaceBinding
@@ -33,16 +37,32 @@ class RaceFragment : Fragment(R.layout.fragment_race),RaceAdapter.OnRaceClickLis
         binding = FragmentRaceBinding.bind(view)
 
         viewModel.fetchRaceBaseInfo().observe(viewLifecycleOwner, Observer { result ->
-            adapter = RaceAdapter(result,this@RaceFragment)
-            binding.rvRaces.adapter = adapter
+            when (result) {
+                is Result.Loading -> {
+                    binding.progressBar.visibility=View.VISIBLE
+                }
+                is Result.Success -> {
+                    binding.progressBar.visibility=View.GONE
+                    adapter = RaceAdapter(result.data, this@RaceFragment)
+                    binding.rvRaces.adapter = adapter
+                }
+            }
+
 
         })
     }
 
     override fun onRaceClick(race: RaceBaseInfo.Stage.Race) {
-        val item= race.venue
-        val action = RaceFragmentDirections.actionRaceFragmentToRaceDetailFragment(item.name,item.city,item.country,
-            item.length.toString()?: "-" ,item.debut.toString()?: "-",item.laps.toString()?: "-",race.description)
+        val item = race.venue
+        val action = RaceFragmentDirections.actionRaceFragmentToRaceDetailFragment(
+            item.name,
+            item.city,
+            item.country,
+            item.length?.toString() ?: "-",
+            item.debut?.toString() ?: "-",
+            item.laps?.toString() ?: "-",
+            race.description
+        )
         findNavController().navigate(action)
     }
 }
