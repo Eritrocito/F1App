@@ -12,58 +12,43 @@ import com.example.f1app_v1.data.model.Driver
 import com.example.f1app_v1.data.model.DriverBaseInfo
 import com.example.f1app_v1.databinding.DriverItemBinding
 
-class Adapter<T: Any>(
-    private val List:T,//List<Driver>,
+class Adapter<T : Any>(
+    private val dataSet: List<T>,
     @LayoutRes val layoutID: Int,
-    private val bindingInterface: BindingInterface<T>,
-    private val itemClickListener: OnDriverClickListener
-) : RecyclerView.Adapter<BaseViewHolder<*>>() {
+    private val bindingInterface: RecyclerBindingInterface<T>,
+    private val itemClickListener: OnClickListener<T>
+) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
-    interface OnDriverClickListener {
-        fun onDriverClick(driver: DriverBaseInfo.Stage.Comp)
+    interface OnClickListener<T> {
+        fun onClick(item: T)//DriverBaseInfo.Stage.Comp)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
-        val itemBinding = LayoutInflater.from(parent.context).inflate(layoutID,parent,false)
-            //DriverItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        val holder = GenericViewHolder(itemBinding.rootView, parent.context)
+    class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+        fun <T : Any> bind(item: T, bindingInterface: RecyclerBindingInterface<T>) =
+            bindingInterface.bindData(item, view)
+    }
 
-        itemBinding.root.setOnClickListener {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val itemBinding = LayoutInflater.from(parent.context).inflate(layoutID, parent, false)
+        val holder = ViewHolder(itemBinding)
+
+        itemBinding.rootView.setOnClickListener {
             val position =
                 holder.bindingAdapterPosition.takeIf { it != DiffUtil.DiffResult.NO_POSITION }
                     ?: return@setOnClickListener
-            itemClickListener.onDriverClick(driverList.stage.competitors[position])
+            itemClickListener.onClick(dataSet[position])
         }
 
         return holder
     }
 
-
-
-    override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
-        when (holder) {
-            is DriversViewHolder -> holder.bind(driverList.stage.competitors[position])
-        }
-
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(dataSet[position], bindingInterface)
     }
 
-    override fun getItemCount(): Int = driverList.stage.competitors.size
+    override fun getItemCount(): Int = dataSet.size
+}
 
-    interface BindingInterface<T> {
-        fun bindData(item: T,view:View)
-    }
-
-    private inner class GenericViewHolder(val binding:View, val context: Context) : BaseViewHolder<T>(binding) {
-
-
-        /*override fun bind(item: DriverBaseInfo.Stage.Comp) {
-            binding.txtName.text = item.name.let {
-                val splitted = it.split(",")
-                "${splitted[1]} ${splitted[0]} "
-            }
-            binding.txtNationality.text = item.nationality
-            binding.txtPosition.text =
-                "${item.result.position} - ${item.result.points} ${if (item.result.points > 1) "points" else "point"}"
-        }*/
-    }
+interface RecyclerBindingInterface<T : Any> {
+    fun bindData(item: T, view: View)
 }
