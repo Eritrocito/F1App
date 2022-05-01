@@ -50,9 +50,13 @@ class DriverFragment : Fragment(R.layout.fragment_driver),
             RecyclerBindingInterface<DriverBaseInfo.Stage.Comp> {
             override fun bindData(item: DriverBaseInfo.Stage.Comp, view: View) {
                 val itemBinding = DriverItemBinding.bind(view)
-                itemBinding.txtName.text = item.name
-                itemBinding.txtPosition.text = item.result.position.toString()
+                itemBinding.txtName.text = item.name.let {
+                    val splitted = it.split(",")
+                    "${splitted[1]} ${splitted[0]} "
+                }
                 itemBinding.txtNationality.text = item.nationality
+                itemBinding.txtPosition.text =
+                    "${item.result.position} - ${item.result.points} ${if (item.result.points > 1) "points" else "point"}"
             }
         }
 
