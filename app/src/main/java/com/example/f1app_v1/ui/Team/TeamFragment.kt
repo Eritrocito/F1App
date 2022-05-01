@@ -1,4 +1,4 @@
-package com.example.f1app_v1.ui.team
+package com.example.f1app_v1.ui.Team
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,15 +1,11 @@
-package com.example.f1app_v1.ui.team
+package com.example.f1app_v1.ui.TeamDetail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.example.f1app_v1.R
-import com.example.f1app_v1.databinding.FragmentDriverDetailBinding
 import com.example.f1app_v1.databinding.FragmentTeamDetailBinding
-import com.example.f1app_v1.ui.DriverDetail.DriverDetailFragmentArgs
 
 
 class TeamDetailFragment : Fragment(R.layout.fragment_team_detail) {
@@ -34,7 +30,7 @@ class TeamDetailFragment : Fragment(R.layout.fragment_team_detail) {
             "${splitted[1]} ${splitted[0]} "
         }
         binding.txtComp1.text="1 - ${comp1}, ${args.comp1Nat}"
-        binding.txtComp2.text="1- ${comp2}, ${args.comp2Nat}"
+        binding.txtComp2.text="2- ${comp2}, ${args.comp2Nat}"
     }
 }
 

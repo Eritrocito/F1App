@@ -102,7 +102,7 @@
     </fragment>
     <fragment
         android:id="@+id/teamFragment"
-        android:name="com.example.f1app_v1.ui.team.TeamFragment"
+        android:name="com.example.f1app_v1.ui.Team.TeamFragment"
         android:label="TeamFragment" >
         <action
             android:id="@+id/action_teamFragment_to_teamDetailFragment"
@@ -110,7 +110,7 @@
     </fragment>
     <fragment
         android:id="@+id/teamDetailFragment"
-        android:name="com.example.f1app_v1.ui.team.TeamDetailFragment"
+        android:name="com.example.f1app_v1.ui.TeamDetail.TeamDetailFragment"
         android:label="fragment_team_detail"
         tools:layout="@layout/fragment_team_detail" >
         <argument
