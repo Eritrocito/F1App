@@ -2,9 +2,7 @@ package com.example.f1app_v1.ui.team
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -12,26 +10,17 @@ import androidx.navigation.fragment.findNavController
 import com.example.f1app_v1.R
 import com.example.f1app_v1.RetrofitClient
 import com.example.f1app_v1.core.Result
-import com.example.f1app_v1.data.model.DriverBaseInfo
 import com.example.f1app_v1.data.model.TeamBaseInfo
-import com.example.f1app_v1.data.remote.DriverDataSource
 import com.example.f1app_v1.data.remote.SeasonDataSource
 import com.example.f1app_v1.data.remote.TeamDataSource
 import com.example.f1app_v1.databinding.DriverItemBinding
-import com.example.f1app_v1.databinding.FragmentDriverBinding
 import com.example.f1app_v1.databinding.FragmentTeamBinding
-import com.example.f1app_v1.presentation.DriverViewModel
-import com.example.f1app_v1.presentation.DriverViewModelFactory
 import com.example.f1app_v1.presentation.TeamViewModel
 import com.example.f1app_v1.presentation.TeamViewModelFactory
-import com.example.f1app_v1.repository.Driver.DriverRepositoryImpl
 import com.example.f1app_v1.repository.Season.SeasonRepositoryImpl
 import com.example.f1app_v1.repository.Team.TeamRepositoryImpl
-import com.example.f1app_v1.ui.Driver.DriverFragmentDirections
 import com.example.f1app_v1.ui.adapters.Adapter
-import com.example.f1app_v1.ui.adapters.DriverAdapter
 import com.example.f1app_v1.ui.adapters.RecyclerBindingInterface
-import com.example.f1app_v1.ui.adapters.TeamAdapter
 
 class TeamFragment : Fragment(R.layout.fragment_team),
     Adapter.OnClickListener<TeamBaseInfo.Stage.Team> {
@@ -70,7 +59,7 @@ class TeamFragment : Fragment(R.layout.fragment_team),
                     binding.progressBar.visibility = View.GONE
                     adapter = Adapter(
                         result.data.stage.teams,
-                        R.layout.driver_item,
+                        R.layout.team_item,
                         bindingInterface, this@TeamFragment
                     )
                     binding.rvTeams.adapter = adapter
