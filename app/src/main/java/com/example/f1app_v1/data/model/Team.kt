@@ -30,12 +30,13 @@ data class Team(
     )
 
     inner class Comp(
-        val name: String, val nationality: String
+        val name: String,
+        val nationality: String
     )
 
     inner class Info(
-        val country_of_residence: String,
-        val debut: String,
-        val foundation_year: String
+        val country_of_residence: String?,
+        val debut: String?,
+        val foundation_year: String?
     )
 }

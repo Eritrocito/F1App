@@ -8,6 +8,7 @@ import com.example.f1app_v1.repository.Driver.DriverRepository
 import com.example.f1app_v1.repository.Season.SeasonRepository
 import com.example.f1app_v1.repository.Team.TeamRepository
 import kotlinx.coroutines.Dispatchers
+import java.lang.Exception
 
 class TeamViewModel(
     private val seasonRepo: SeasonRepository,
@@ -17,11 +18,16 @@ class TeamViewModel(
     fun fetchTeamsBaseInfo() = liveData(Dispatchers.IO)
     {
         emit(Result.Loading())
-        var id = seasonRepo.getSeasonIds().stages[0].id //Position 0 corresponds to current season
-        id = id.replace(":", "%3a")
-        Thread.sleep(800)
-        val teamBaseInfo = repo.getTeamBaseInfo(id)
-        emit(Result.Success(teamBaseInfo))
+        try {
+            var id =
+                seasonRepo.getSeasonIds().stages[0].id //Position 0 corresponds to current season
+            id = id.replace(":", "%3a")
+            Thread.sleep(800)
+            val teamBaseInfo = repo.getTeamBaseInfo(id)
+            emit(Result.Success(teamBaseInfo))
+        }catch (e:Exception){
+            emit(Result.Failure(e))
+        }
     }
     fun fetchTeam(id:String) = liveData(Dispatchers.IO){
         emit(repo.getTeam(id))
