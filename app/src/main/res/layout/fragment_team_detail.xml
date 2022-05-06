@@ -16,7 +16,7 @@
         android:background="@drawable/driver_champ_back"
         android:gravity="center"
         android:textColor="@color/black"
-        android:textSize="35dp"
+        android:textSize="@dimen/_30sdp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
                 android:gravity="center"
                 android:text="Info"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="@dimen/_20sdp"
                 android:textStyle="bold" />
 
 
@@ -59,7 +59,7 @@
                 android:background="@color/driverDetailBack"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="@dimen/_15sdp"
                 android:textStyle="bold"
                 tools:text="country" />
 
@@ -70,7 +70,7 @@
                 android:background="@color/driverDetailBack"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="@dimen/_15sdp"
                 android:textStyle="bold"
                 tools:text="founded" />
 
@@ -81,7 +81,7 @@
                 android:background="@color/driverDetailBack"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="@dimen/_15sdp"
                 android:textStyle="bold"
                 tools:text="debut" />
 
@@ -111,7 +111,7 @@
                 android:gravity="center_horizontal"
                 android:text="Drivers"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="@dimen/_20sdp"
                 android:textStyle="bold" />
 
             <TextView
@@ -121,7 +121,7 @@
                 android:background="@color/driverDetailBack"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="@dimen/_15sdp"
                 android:textStyle="bold"
                 tools:text="Carlos Sainz, Spain" />
 
@@ -132,7 +132,7 @@
                 android:background="@color/driverDetailBack"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="@dimen/_15sdp"
                 android:textStyle="bold"
                 tools:text="Charles Leclerc, Monaco" />
         </LinearLayout>

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:text="Grand Prix calendar"
-        android:textSize="35dp"
+        android:textSize="@dimen/_30sdp"
         android:gravity="center"
         android:textStyle="bold"
         android:textColor="@color/black"

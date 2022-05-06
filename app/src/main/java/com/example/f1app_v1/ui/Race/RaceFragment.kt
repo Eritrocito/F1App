@@ -1,6 +1,8 @@
 package com.example.f1app_v1.ui.Race
 
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
@@ -21,6 +23,9 @@ import com.example.f1app_v1.core.Result
 import com.example.f1app_v1.databinding.RaceItemBinding
 import com.example.f1app_v1.ui.adapters.Adapter
 import com.example.f1app_v1.ui.adapters.RecyclerBindingInterface
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 
 class RaceFragment : Fragment(R.layout.fragment_race),
@@ -35,6 +40,8 @@ class RaceFragment : Fragment(R.layout.fragment_race),
 
     private lateinit var binding: FragmentRaceBinding
     private lateinit var adapter: Adapter<RaceBaseInfo.Stage.Race>
+    private var nextRace: Boolean = true
+    private var Raced: Boolean = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,7 +51,13 @@ class RaceFragment : Fragment(R.layout.fragment_race),
             RecyclerBindingInterface<RaceBaseInfo.Stage.Race> {
             override fun bindData(item: RaceBaseInfo.Stage.Race, view: View) {
                 val itemBinding = RaceItemBinding.bind(view)
-                itemBinding.txtGPname.text = item.description
+
+                itemBinding.txtGPname.apply {
+                    this.text = item.description
+                    if (item.status == "Running" || item.status == "Not started")
+                        this.setBackgroundColor(Color.GREEN)
+                    else this.setBackgroundResource(R.drawable.driver_item_back)
+                }
                 itemBinding.txtStatus.text = item.status
                 itemBinding.txtStart.text = "Start ${item.scheduled.split("T")[0]}"
                 itemBinding.txtEnd.text = "End ${item.scheduled_end.split("T")[0]}"
