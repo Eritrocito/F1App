@@ -7,4 +7,4 @@ Key features regarding its construction:
 - Use of Navigation Components with SafeArgs to navigate between fragments
 - Use of ViewBinding and RecyclerView, with generic adapters
 - Use of Kotlin scope functions
--Published on Google PlayStore - https://play.google.com/store/apps/details?id=com.F1App.f1app_v1.ui
+- Published on Google PlayStore - https://play.google.com/store/apps/details?id=com.F1App.f1app_v1.ui
